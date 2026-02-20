@@ -1,0 +1,33 @@
+---
+import Container from '@/components/common/Container.astro';
+import Button from '@/components/common/Button.astro';
+import { SITE_CONFIG } from '@/config/site.config';
+---
+
+<section class="bg-linear-to-br from-indigo-50 via-white to-purple-50 py-20 md:py-32">
+  <Container>
+    <div class="text-center max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+        Hola, soy <span class="text-indigo-600">{SITE_CONFIG.author}</span>
+      </h1>
+      
+      <p class="text-xl md:text-2xl text-gray-600 mb-8">
+        {SITE_CONFIG.description}
+      </p>
+      
+      <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+        Transformo ideas en experiencias digitales excepcionales. 
+        Especializado en crear aplicaciones web modernas, rápidas y escalables.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button href="/projects" size="lg">
+          Ver Proyectos
+        </Button>
+        <Button href="/contact" variant="outline" size="lg">
+          Contactar
+        </Button>
+      </div>
+    </div>
+  </Container>
+</section>

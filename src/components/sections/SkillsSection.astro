@@ -1,0 +1,52 @@
+---
+import Container from '@/components/common/Container.astro';
+import Card from '@/components/common/Card.astro';
+
+const skillCategories = [
+  {
+    title: 'Frontend',
+    skills: ['React', 'TypeScript', 'TailwindCSS', 'Astro', 'Vue']
+  },
+  {
+    title: 'Backend',
+    skills: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'REST APIs']
+  },
+  {
+    title: 'DevOps & Tools',
+    skills: ['Git', 'Docker', 'CI/CD', 'AWS', 'Vercel']
+  }
+];
+---
+
+<section class="py-20 bg-white">
+  <Container>
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Habilidades Técnicas
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Tecnologías y herramientas con las que trabajo
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      {skillCategories.map(category => (
+        <Card>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">
+            {category.title}
+          </h3>
+          <ul class="space-y-3">
+            {category.skills.map(skill => (
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                {skill}
+              </li>
+            ))}
+          </ul>
+        </Card>
+      ))}
+    </div>
+  </Container>
+</section>

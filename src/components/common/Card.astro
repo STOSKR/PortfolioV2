@@ -1,0 +1,29 @@
+---
+interface Props {
+  className?: string;
+  padding?: 'none' | 'sm' | 'md' | 'lg';
+  hover?: boolean;
+}
+
+const { 
+  className = '', 
+  padding = 'md',
+  hover = false
+} = Astro.props;
+
+const baseStyles = 'bg-white rounded-lg shadow-md';
+const hoverStyles = hover ? 'transition-transform hover:scale-105 hover:shadow-xl' : '';
+
+const paddings = {
+  none: '',
+  sm: 'p-4',
+  md: 'p-6',
+  lg: 'p-8'
+};
+
+const classes = `${baseStyles} ${hoverStyles} ${paddings[padding]} ${className}`;
+---
+
+<div class={classes}>
+  <slot />
+</div>

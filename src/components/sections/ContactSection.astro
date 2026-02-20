@@ -1,0 +1,81 @@
+---
+import Container from '@/components/common/Container.astro';
+import Card from '@/components/common/Card.astro';
+import Button from '@/components/common/Button.astro';
+import { SITE_CONFIG } from '@/config/site.config';
+---
+
+<section class="py-20 bg-gray-50">
+  <Container>
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Trabajemos Juntos
+        </h2>
+        <p class="text-lg text-gray-600">
+          ¿Tienes un proyecto en mente? Me encantaría escuchar sobre él
+        </p>
+      </div>
+      
+      <Card padding="lg">
+        <form class="space-y-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+              Nombre
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              placeholder="Tu nombre"
+            />
+          </div>
+          
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              placeholder="tu@email.com"
+            />
+          </div>
+          
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+              Mensaje
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
+              placeholder="Cuéntame sobre tu proyecto..."
+            ></textarea>
+          </div>
+          
+          <Button type="submit" size="lg" className="w-full">
+            Enviar Mensaje
+          </Button>
+        </form>
+      </Card>
+      
+      <div class="mt-12 text-center">
+        <p class="text-gray-600 mb-4">O contáctame directamente:</p>
+        <a 
+          href={`mailto:${SITE_CONFIG.email}`}
+          class="text-indigo-600 hover:text-indigo-700 font-medium text-lg"
+        >
+          {SITE_CONFIG.email}
+        </a>
+      </div>
+    </div>
+  </Container>
+</section>

@@ -1,0 +1,55 @@
+---
+import Container from '@/components/common/Container.astro';
+import Card from '@/components/common/Card.astro';
+---
+
+<section class="py-20 bg-white">
+  <Container>
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+        Sobre Mí
+      </h2>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="aspect-square bg-linear-to-br from-indigo-400 to-purple-500 rounded-lg"></div>
+        </div>
+        
+        <div class="space-y-4">
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Soy un desarrollador apasionado por crear soluciones tecnológicas 
+            que impacten positivamente en la vida de las personas.
+          </p>
+          
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Con experiencia en desarrollo full-stack, me especializo en 
+            construir aplicaciones web modernas utilizando las últimas tecnologías 
+            y mejores prácticas de la industria.
+          </p>
+          
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Mi enfoque está en escribir código limpio, mantenible y escalable, 
+            siempre buscando la mejor experiencia de usuario posible.
+          </p>
+        </div>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-6 mt-16">
+        <Card className="text-center">
+          <div class="text-3xl font-bold text-indigo-600 mb-2">3+</div>
+          <p class="text-gray-600">Años de Experiencia</p>
+        </Card>
+        
+        <Card className="text-center">
+          <div class="text-3xl font-bold text-indigo-600 mb-2">20+</div>
+          <p class="text-gray-600">Proyectos Completados</p>
+        </Card>
+        
+        <Card className="text-center">
+          <div class="text-3xl font-bold text-indigo-600 mb-2">15+</div>
+          <p class="text-gray-600">Clientes Satisfechos</p>
+        </Card>
+      </div>
+    </div>
+  </Container>
+</section>

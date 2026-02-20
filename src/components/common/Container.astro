@@ -1,0 +1,24 @@
+---
+interface Props {
+  className?: string;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+}
+
+const { 
+  className = '',
+  size = 'lg'
+} = Astro.props;
+
+const sizes = {
+  sm: 'max-w-3xl',
+  md: 'max-w-5xl',
+  lg: 'max-w-7xl',
+  xl: 'max-w-screen-2xl'
+};
+
+const classes = `${sizes[size]} mx-auto px-4 sm:px-6 lg:px-8 ${className}`;
+---
+
+<div class={classes}>
+  <slot />
+</div>
