@@ -7,36 +7,21 @@ interface LoadingScreenProps {
 
 export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const logoRef = useRef<HTMLDivElement>(null);
+  const spinnerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const container = containerRef.current;
-    const logo = logoRef.current;
+    const spinner = spinnerRef.current;
 
-    if (!container || !logo) return;
-
-    const tl = gsap.timeline();
-
-    tl.from(logo, {
-      scale: 0,
-      rotation: 360,
-      duration: 0.8,
-      ease: 'back.out(1.7)',
-    }).to(logo, {
-      scale: 1.1,
-      duration: 0.3,
-      yoyo: true,
-      repeat: 1,
-      ease: 'power2.inOut',
-    });
+    if (!container || !spinner) return;
 
     const loadingTimer = setTimeout(() => {
       const exitTl = gsap.timeline();
       
       exitTl
-        .to(logo, {
+        .to(spinner, {
           scale: 0,
-          rotation: -360,
+          opacity: 0,
           duration: 0.5,
           ease: 'back.in(1.7)',
         })
@@ -58,7 +43,6 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
 
     return () => {
       clearTimeout(loadingTimer);
-      tl.kill();
     };
   }, [onLoadingComplete]);
 
@@ -75,21 +59,96 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-lime"
-      style={{ 
-        clipPath: 'circle(100% at 50% 50%)',
-        pointerEvents: 'auto',
-      }}
-    >
-      <div ref={logoRef} className="w-64 h-64">
-        <img 
-          src="/images/logo.svg" 
-          alt="Logo" 
-          className="w-full h-full object-contain"
-        />
+    <>
+      <style>{`
+        @keyframes spin3D {
+          from {
+            transform: rotate3d(.5,.5,.5, 360deg);
+          }
+          to {
+            transform: rotate3d(0deg);
+          }
+        }
+
+        .spinner-box {
+          width: 300px;
+          height: 300px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+        }
+
+        .leo {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+        }
+
+        .blue-orbit {
+          width: 165px;
+          height: 165px;
+          border: 1px solid #91daffa5;
+          -webkit-animation: spin3D 3s linear .2s infinite;
+          animation: spin3D 3s linear .2s infinite;
+        }
+
+        .green-orbit {
+          width: 120px;
+          height: 120px;
+          border: 1px solid #91ffbfa5;
+          -webkit-animation: spin3D 2s linear 0s infinite;
+          animation: spin3D 2s linear 0s infinite;
+        }
+
+        .red-orbit {
+          width: 90px;
+          height: 90px;
+          border: 1px solid #ffca91a5;
+          -webkit-animation: spin3D 1s linear 0s infinite;
+          animation: spin3D 1s linear 0s infinite;
+        }
+
+        .white-orbit {
+          width: 60px;
+          height: 60px;
+          border: 2px solid #ffffff;
+          -webkit-animation: spin3D 10s linear 0s infinite;
+          animation: spin3D 10s linear 0s infinite;
+        }
+
+        .w1 {
+          transform: rotate3D(1, 1, 1, 90deg);
+        }
+
+        .w2 {
+          transform: rotate3D(1, 2, .5, 90deg);
+        }
+
+        .w3 {
+          transform: rotate3D(.5, 1, 2, 90deg);
+        }
+      `}</style>
+      
+      <div
+        ref={containerRef}
+        className="fixed inset-0 z-[9999] flex items-center justify-center bg-lime"
+        style={{ 
+          clipPath: 'circle(100% at 50% 50%)',
+          pointerEvents: 'auto',
+        }}
+      >
+        <div ref={spinnerRef} className="spinner-box">
+          <div className="blue-orbit leo"></div>
+          <div className="green-orbit leo"></div>
+          <div className="red-orbit leo"></div>
+          <div className="white-orbit w1 leo"></div>
+          <div className="white-orbit w2 leo"></div>
+          <div className="white-orbit w3 leo"></div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

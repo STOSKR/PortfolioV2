@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLoadingState } from './AppWrapper';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,17 +18,30 @@ export default function NavHeader({
   ]
 }: NavHeaderProps) {
   const headerRef = useRef<HTMLElement>(null);
+  const { isLoading } = useLoadingState();
 
   useEffect(() => {
     const header = headerRef.current;
     if (!header) return;
 
-    gsap.set(header, { y: 0, opacity: 1 });
+    if (isLoading) {
+      gsap.set(header, { opacity: 0, pointerEvents: 'none' });
+    } else {
+      gsap.to(header, {
+        opacity: 1,
+        duration: 0.8,
+        delay: 0.3,
+        ease: 'power2.out',
+        onComplete: () => {
+          gsap.set(header, { pointerEvents: 'auto' });
+        }
+      });
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach(st => st.kill());
     };
-  }, []);
+  }, [isLoading]);
 
   return (
     <header

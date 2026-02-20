@@ -7,5 +7,7 @@
   </defs>
   <rect width="1920" height="1080" fill="url(#grad2)"/>
   <circle cx="960" cy="540" r="300" fill="rgba(255, 0, 110, 0.1)"/>
-  <text x="960" y="580" font-size="100" font-weight="900" text-anchor="middle" fill="rgba(255, 0, 110, 0.4)" font-style="italic">CON CASCO</text>
+  <text x="960" y="520" font-size="80" font-weight="900" text-anchor="middle" fill="rgba(255, 0, 110, 0.5)">COLOCA AQUÍ</text>
+  <text x="960" y="620" font-size="80" font-weight="900" text-anchor="middle" fill="rgba(255, 0, 110, 0.5)">TU FOTO CON CASCO</text>
+  <text x="960" y="720" font-size="40" font-weight="600" text-anchor="middle" fill="rgba(255, 255, 255, 0.3)">(hero-hover.jpg)</text>
 </svg>
