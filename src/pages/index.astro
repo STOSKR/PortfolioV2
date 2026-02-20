@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import HeroSection from '@/components/sections/HeroSection.astro';
+import HeroImage from '@/components/ui/HeroImage';
 import AboutSection from '@/components/sections/AboutSection.astro';
 import ProjectsSection from '@/components/sections/ProjectsSection.astro';
 import SkillsSection from '@/components/sections/SkillsSection.astro';
@@ -8,7 +8,7 @@ import ContactSection from '@/components/sections/ContactSection.astro';
 ---
 
 <BaseLayout>
-  <HeroSection />
+  <HeroImage client:load />
   <AboutSection />
   <ProjectsSection />
   <SkillsSection />

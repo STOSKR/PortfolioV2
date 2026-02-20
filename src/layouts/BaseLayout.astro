@@ -1,7 +1,8 @@
 ---
 import { SITE_CONFIG } from '@/config/site.config';
-import Header from '@/components/layout/Header.astro';
+import NavHeader from '@/components/layout/NavHeader';
 import Footer from '@/components/layout/Footer.astro';
+import AppWrapper from '@/components/layout/AppWrapper';
 import '@/styles/global.css';
 
 interface Props {
@@ -26,10 +27,12 @@ const {
     <title>{title}</title>
   </head>
   <body class="antialiased">
-    <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+    <AppWrapper client:load>
+      <NavHeader client:load />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </AppWrapper>
   </body>
 </html>
