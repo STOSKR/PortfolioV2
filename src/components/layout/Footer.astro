@@ -11,35 +11,35 @@ const socialLinks = [
 ].filter(link => link.href);
 ---
 
-<footer class="bg-gray-900 text-gray-300 py-12 mt-20">
+<footer class="bg-black border-t border-[#D4FF00]/20 text-gray-400 py-12">
   <Container>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
-        <h3 class="text-white font-bold text-lg mb-4">{SITE_CONFIG.author}</h3>
-        <p class="text-sm">
+        <h3 class="text-white font-black text-2xl mb-4">{SITE_CONFIG.author}</h3>
+        <p class="text-sm text-gray-400">
           {SITE_CONFIG.description}
         </p>
       </div>
 
       <div>
-        <h4 class="text-white font-semibold mb-4">Enlaces</h4>
+        <h4 class="text-white font-bold mb-4 uppercase">Enlaces</h4>
         <ul class="space-y-2">
-          <li><a href="/" class="hover:text-white transition">Inicio</a></li>
-          <li><a href="/about" class="hover:text-white transition">Sobre Mí</a></li>
-          <li><a href="/projects" class="hover:text-white transition">Proyectos</a></li>
-          <li><a href="/contact" class="hover:text-white transition">Contacto</a></li>
+          <li><a href="/" class="hover:text-[#D4FF00] transition-colors font-medium">Inicio</a></li>
+          <li><a href="/about" class="hover:text-[#D4FF00] transition-colors font-medium">Sobre Mí</a></li>
+          <li><a href="/projects" class="hover:text-[#D4FF00] transition-colors font-medium">Proyectos</a></li>
+          <li><a href="/contact" class="hover:text-[#D4FF00] transition-colors font-medium">Contacto</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="text-white font-semibold mb-4">Sígueme</h4>
+        <h4 class="text-white font-bold mb-4 uppercase">Sígueme</h4>
         <div class="flex gap-4">
           {socialLinks.map(link => (
             <a 
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              class="hover:text-white transition"
+              class="hover:text-[#D4FF00] transition-colors"
               aria-label={link.name}
             >
               <span class="sr-only">{link.name}</span>
@@ -60,8 +60,8 @@ const socialLinks = [
       </div>
     </div>
 
-    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-      <p>&copy; {currentYear} {SITE_CONFIG.author}. Todos los derechos reservados.</p>
+    <div class="border-t border-gray-900 mt-8 pt-8 text-center text-sm">
+      <p class="text-gray-500">&copy; {currentYear} {SITE_CONFIG.author}. Todos los derechos reservados.</p>
     </div>
   </Container>
 </footer>

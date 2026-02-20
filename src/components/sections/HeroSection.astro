@@ -4,23 +4,28 @@ import Button from '@/components/common/Button.astro';
 import { SITE_CONFIG } from '@/config/site.config';
 ---
 
-<section class="bg-linear-to-br from-indigo-50 via-white to-purple-50 py-20 md:py-32">
-  <Container>
-    <div class="text-center max-w-4xl mx-auto">
-      <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-        Hola, soy <span class="text-indigo-600">{SITE_CONFIG.author}</span>
+<section class="relative min-h-screen bg-[#0A0A0A] flex items-center overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-20 left-10 w-96 h-96 bg-[#D4FF00] rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#FF006E] rounded-full blur-3xl"></div>
+  </div>
+  
+  <Container className="relative z-10">
+    <div class="text-center max-w-5xl mx-auto py-20">
+      <h1 class="text-6xl md:text-8xl font-black text-white mb-6 tracking-tight">
+        Hola, soy <span class="text-[#D4FF00]">{ SITE_CONFIG.author }</span>
       </h1>
       
-      <p class="text-xl md:text-2xl text-gray-600 mb-8">
+      <p class="text-2xl md:text-3xl text-gray-300 mb-8 font-bold uppercase tracking-wide">
         {SITE_CONFIG.description}
       </p>
       
-      <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+      <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
         Transformo ideas en experiencias digitales excepcionales. 
         Especializado en crear aplicaciones web modernas, rápidas y escalables.
       </p>
       
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
         <Button href="/projects" size="lg">
           Ver Proyectos
         </Button>

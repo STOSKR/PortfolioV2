@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@theme {
+  --color-lime: #D4FF00;
+  --color-lime-dark: #B8E000;
+  --color-dark: #0A0A0A;
+  --color-dark-lighter: #1A1A1A;
+  --color-accent: #FF006E;
+  --color-accent-blue: #00D9FF;
+}
+
+body {
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+}

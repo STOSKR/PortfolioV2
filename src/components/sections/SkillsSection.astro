@@ -5,43 +5,46 @@ import Card from '@/components/common/Card.astro';
 const skillCategories = [
   {
     title: 'Frontend',
+    color: 'D4FF00',
     skills: ['React', 'TypeScript', 'TailwindCSS', 'Astro', 'Vue']
   },
   {
     title: 'Backend',
+    color: 'FF006E',
     skills: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'REST APIs']
   },
   {
     title: 'DevOps & Tools',
+    color: '00D9FF',
     skills: ['Git', 'Docker', 'CI/CD', 'AWS', 'Vercel']
   }
 ];
 ---
 
-<section class="py-20 bg-white">
+<section class="py-20 bg-[#0A0A0A]">
   <Container>
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        Habilidades Técnicas
+      <h2 class="text-4xl md:text-6xl font-black text-white mb-4">
+        Habilidades <span class="text-[#D4FF00]">Técnicas</span>
       </h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
         Tecnologías y herramientas con las que trabajo
       </p>
     </div>
     
     <div class="grid md:grid-cols-3 gap-8">
       {skillCategories.map(category => (
-        <Card>
-          <h3 class="text-xl font-bold text-gray-900 mb-4">
+        <Card className={`border-2 border-[#${category.color}]/20 hover:border-[#${category.color}]`}>
+          <h3 class={`text-2xl font-black text-[#${category.color}] mb-6 uppercase`}>
             {category.title}
           </h3>
           <ul class="space-y-3">
             {category.skills.map(skill => (
-              <li class="flex items-center text-gray-700">
-                <svg class="w-5 h-5 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              <li class="flex items-center text-gray-300">
+                <svg class={`w-5 h-5 text-[#${category.color}] mr-3`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
                 </svg>
-                {skill}
+                <span class="font-medium">{skill}</span>
               </li>
             ))}
           </ul>
