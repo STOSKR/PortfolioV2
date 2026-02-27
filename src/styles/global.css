@@ -14,6 +14,28 @@ body {
   color: #FFFFFF;
 }
 
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(212, 255, 0, 0.3);
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 255, 0, 0.5);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 255, 0, 0.3) #0A0A0A;
+}
+
 .glow-effect {
   box-shadow: 0 0 20px rgba(212, 255, 0, 0.3), 0 0 40px rgba(212, 255, 0, 0.2);
 }
