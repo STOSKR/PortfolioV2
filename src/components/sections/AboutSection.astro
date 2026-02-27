@@ -3,16 +3,30 @@ import Container from '@/components/common/Container.astro';
 import Card from '@/components/common/Card.astro';
 ---
 
-<section class="py-20 bg-[#0A0A0A]">
+<section class="py-20 bg-dark relative overflow-hidden">
+  <!-- Background effects -->
+  <div class="absolute inset-0 diagonal-lines opacity-20"></div>
+  <div class="absolute top-0 right-0 w-2/3 h-0.5 bg-linear-to-l from-primary to-transparent opacity-50"></div>
+  
   <Container>
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-6xl mx-auto relative">
       <h2 class="text-4xl md:text-6xl font-black text-white mb-12 text-center">
-        Sobre <span class="text-[#D4FF00]">Mí</span>
+        Sobre <span class="text-primary text-glow">Mí</span>
       </h2>
       
       <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-        <div>
-          <div class="aspect-square bg-linear-to-br from-[#D4FF00] to-[#FF006E] rounded-2xl shadow-2xl shadow-[#D4FF00]/20"></div>
+        <div class="relative">
+          <div class="aspect-square bg-linear-to-br from-primary to-primary-dark rounded-2xl shadow-2xl shadow-primary/30 relative overflow-hidden">
+            <!-- Grid overlay -->
+            <div class="absolute inset-0 grid-pattern opacity-30"></div>
+            <!-- Center glow -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-32 h-32 bg-primary rounded-full blur-3xl opacity-50"></div>
+            </div>
+          </div>
+          <!-- Decorative corner lines -->
+          <div class="absolute -top-4 -left-4 w-20 h-20 border-l-2 border-t-2 border-primary rounded-tl-lg"></div>
+          <div class="absolute -bottom-4 -right-4 w-20 h-20 border-r-2 border-b-2 border-primary rounded-br-lg"></div>
         </div>
         
         <div class="space-y-6">
@@ -35,18 +49,18 @@ import Card from '@/components/common/Card.astro';
       </div>
       
       <div class="grid md:grid-cols-3 gap-6">
-        <Card className="text-center border-2 border-[#D4FF00]/20 hover:border-[#D4FF00]">
-          <div class="text-5xl font-black text-[#D4FF00] mb-2">3+</div>
+        <Card className="text-center border-2 border-primary/30 hover:border-primary transition-all group">
+          <div class="text-5xl font-black text-primary mb-2 group-hover:text-glow">3+</div>
           <p class="text-gray-400 uppercase tracking-wide font-bold">Años de Experiencia</p>
         </Card>
         
-        <Card className="text-center border-2 border-[#FF006E]/20 hover:border-[#FF006E]">
-          <div class="text-5xl font-black text-[#FF006E] mb-2">20+</div>
+        <Card className="text-center border-2 border-primary-dark/30 hover:border-primary-dark transition-all group">
+          <div class="text-5xl font-black text-primary-dark mb-2 group-hover:text-glow">20+</div>
           <p class="text-gray-400 uppercase tracking-wide font-bold">Proyectos Completados</p>
         </Card>
         
-        <Card className="text-center border-2 border-[#00D9FF]/20 hover:border-[#00D9FF]">
-          <div class="text-5xl font-black text-[#00D9FF] mb-2">15+</div>
+        <Card className="text-center border-2 border-accent/30 hover:border-accent transition-all group">
+          <div class="text-5xl font-black text-accent mb-2 group-hover:text-glow">15+</div>
           <p class="text-gray-400 uppercase tracking-wide font-bold">Clientes Satisfechos</p>
         </Card>
       </div>

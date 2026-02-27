@@ -5,27 +5,31 @@ import Card from '@/components/common/Card.astro';
 const skillCategories = [
   {
     title: 'Frontend',
-    color: 'D4FF00',
+    colorClass: 'primary',
     skills: ['React', 'TypeScript', 'TailwindCSS', 'Astro', 'Vue']
   },
   {
     title: 'Backend',
-    color: 'FF006E',
+    colorClass: 'primary-dark',
     skills: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'REST APIs']
   },
   {
     title: 'DevOps & Tools',
-    color: '00D9FF',
+    colorClass: 'accent',
     skills: ['Git', 'Docker', 'CI/CD', 'AWS', 'Vercel']
   }
 ];
 ---
 
-<section class="py-20 bg-[#0A0A0A]">
+<section class="py-20 bg-dark relative overflow-hidden">
+  <!-- Background effects -->
+  <div class="absolute inset-0 diagonal-lines opacity-20"></div>
+  <div class="absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-primary to-transparent"></div>
+  
   <Container>
-    <div class="text-center mb-12">
+    <div class="text-center mb-12 relative">
       <h2 class="text-4xl md:text-6xl font-black text-white mb-4">
-        Habilidades <span class="text-[#D4FF00]">Técnicas</span>
+        Habilidades <span class="text-primary text-glow">Técnicas</span>
       </h2>
       <p class="text-xl text-gray-400 max-w-2xl mx-auto">
         Tecnologías y herramientas con las que trabajo
@@ -33,15 +37,27 @@ const skillCategories = [
     </div>
     
     <div class="grid md:grid-cols-3 gap-8">
-      {skillCategories.map(category => (
-        <Card className={`border-2 border-[#${category.color}]/20 hover:border-[#${category.color}]`}>
-          <h3 class={`text-2xl font-black text-[#${category.color}] mb-6 uppercase`}>
+      {skillCategories.map((category, idx) => (
+        <Card className={`border-2 transition-all group ${
+          idx === 0 ? 'border-primary/20 hover:border-primary' :
+          idx === 1 ? 'border-primary-dark/20 hover:border-primary-dark' :
+          'border-accent/20 hover:border-accent'
+        }`}>
+          <h3 class={`text-2xl font-black mb-6 uppercase group-hover:text-glow ${
+            idx === 0 ? 'text-primary' :
+            idx === 1 ? 'text-primary-dark' :
+            'text-accent'
+          }`}>
             {category.title}
           </h3>
           <ul class="space-y-3">
             {category.skills.map(skill => (
-              <li class="flex items-center text-gray-300">
-                <svg class={`w-5 h-5 text-[#${category.color}] mr-3`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <li class="flex items-center text-gray-300 hover:text-white transition-colors">
+                <svg class={`w-5 h-5 mr-3 flex-shrink-0 ${
+                  idx === 0 ? 'text-primary' :
+                  idx === 1 ? 'text-primary-dark' :
+                  'text-accent'
+                }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
                 </svg>
                 <span class="font-medium">{skill}</span>

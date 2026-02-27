@@ -134,10 +134,10 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
       
       <div
         ref={containerRef}
-        className="fixed inset-0 z-[9999] flex items-center justify-center bg-lime"
+        className="fixed inset-0 z-[9999] flex items-center justify-center bg-primary"
         style={{ 
           clipPath: 'circle(100% at 50% 50%)',
-          pointerEvents: 'auto',
+          pointerEvents: 'auto'
         }}
       >
         <div ref={spinnerRef} className="spinner-box">

@@ -11,8 +11,8 @@ const {
   hover = false
 } = Astro.props;
 
-const baseStyles = 'bg-[#1A1A1A] rounded-xl shadow-xl backdrop-blur-sm';
-const hoverStyles = hover ? 'transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#D4FF00]/10' : '';
+const baseStyles = 'bg-dark-lighter rounded-xl shadow-xl backdrop-blur-sm border border-primary/10';
+const hoverStyles = hover ? 'transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30' : '';
 
 const paddings = {
   none: '',

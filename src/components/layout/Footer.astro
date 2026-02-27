@@ -11,7 +11,10 @@ const socialLinks = [
 ].filter(link => link.href);
 ---
 
-<footer class="bg-black border-t border-[#D4FF00]/20 text-gray-400 py-12">
+<footer class="bg-black border-t border-primary/30 text-gray-400 py-12 relative overflow-hidden">
+  <!-- Decorative line -->
+  <div class="absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-primary to-transparent"></div>
+  
   <Container>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
@@ -24,10 +27,10 @@ const socialLinks = [
       <div>
         <h4 class="text-white font-bold mb-4 uppercase">Enlaces</h4>
         <ul class="space-y-2">
-          <li><a href="/" class="hover:text-[#D4FF00] transition-colors font-medium">Inicio</a></li>
-          <li><a href="/about" class="hover:text-[#D4FF00] transition-colors font-medium">Sobre Mí</a></li>
-          <li><a href="/projects" class="hover:text-[#D4FF00] transition-colors font-medium">Proyectos</a></li>
-          <li><a href="/contact" class="hover:text-[#D4FF00] transition-colors font-medium">Contacto</a></li>
+          <li><a href="/" class="hover:text-primary transition-all font-medium">Inicio</a></li>
+          <li><a href="/about" class="hover:text-primary transition-all font-medium">Sobre Mí</a></li>
+          <li><a href="/projects" class="hover:text-primary transition-all font-medium">Proyectos</a></li>
+          <li><a href="/contact" class="hover:text-primary transition-all font-medium">Contacto</a></li>
         </ul>
       </div>
 
@@ -39,7 +42,7 @@ const socialLinks = [
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              class="hover:text-[#D4FF00] transition-colors"
+              class="hover:text-primary transition-all"
               aria-label={link.name}
             >
               <span class="sr-only">{link.name}</span>

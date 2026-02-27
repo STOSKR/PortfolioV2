@@ -16,10 +16,10 @@ function isActive(href: string): boolean {
 }
 ---
 
-<header class="sticky top-0 z-50 bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#D4FF00]/20">
+<header class="sticky top-0 z-50 bg-dark/95 backdrop-blur-md border-b border-primary/30 shadow-lg shadow-primary/10">
   <Container>
     <nav class="flex items-center justify-between h-20">
-      <a href="/" class="text-2xl font-black text-white hover:text-[#D4FF00] transition-colors">
+      <a href="/" class="text-2xl font-black text-white hover:text-primary transition-all hover:text-glow">
         {SITE_CONFIG.author}
       </a>
       
@@ -28,8 +28,8 @@ function isActive(href: string): boolean {
           <li>
             <a 
               href={item.href}
-              class={`text-white hover:text-[#D4FF00] transition-colors font-bold uppercase text-sm tracking-wider ${
-                isActive(item.href) ? 'text-[#D4FF00]' : ''
+              class={`text-white hover:text-primary transition-all font-bold uppercase text-sm tracking-wider ${
+                isActive(item.href) ? 'text-primary text-glow' : ''
               }`}
             >
               {item.name}
@@ -40,7 +40,7 @@ function isActive(href: string): boolean {
 
       <button 
         id="mobile-menu-button"
-        class="md:hidden p-2 text-white hover:text-[#D4FF00]"
+        class="md:hidden p-2 text-white hover:text-primary transition-all"
         aria-label="Toggle menu"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,8 +55,8 @@ function isActive(href: string): boolean {
           <li>
             <a 
               href={item.href}
-              class={`block text-white hover:text-[#D4FF00] transition-colors font-bold uppercase ${
-                isActive(item.href) ? 'text-[#D4FF00]' : ''
+              class={`block text-white hover:text-primary transition-all font-bold uppercase ${
+                isActive(item.href) ? 'text-primary text-glow' : ''
               }`}
             >
               {item.name}

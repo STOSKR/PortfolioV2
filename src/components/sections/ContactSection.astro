@@ -5,19 +5,23 @@ import Button from '@/components/common/Button.astro';
 import { SITE_CONFIG } from '@/config/site.config';
 ---
 
-<section class="py-20 bg-[#0A0A0A]">
+<section class="py-20 bg-dark relative overflow-hidden">
+  <!-- Background effects -->
+  <div class="absolute inset-0 grid-pattern opacity-30"></div>
+  <div class="absolute top-1/2 left-0 w-1/2 h-0.5 bg-linear-to-r from-primary to-transparent opacity-50"></div>
+  
   <Container>
     <div class="max-w-2xl mx-auto">
-      <div class="text-center mb-12">
+      <div class="text-center mb-12 relative">
         <h2 class="text-4xl md:text-6xl font-black text-white mb-4">
-          Trabajemos <span class="text-[#D4FF00]">Juntos</span>
+          Trabajemos <span class="text-primary text-glow">Juntos</span>
         </h2>
         <p class="text-xl text-gray-400">
           ¿Tienes un proyecto en mente? Me encantaría escuchar sobre él
         </p>
       </div>
       
-      <Card padding="lg" className="border-2 border-[#D4FF00]/20">
+      <Card padding="lg" className="border-2 border-primary/30 hover:border-primary transition-all glow-effect">
         <form class="space-y-6">
           <div>
             <label for="name" class="block text-sm font-bold text-white mb-2 uppercase">
@@ -28,7 +32,7 @@ import { SITE_CONFIG } from '@/config/site.config';
               id="name"
               name="name"
               required
-              class="w-full px-4 py-3 bg-black/50 border-2 border-gray-800 text-white rounded-lg focus:ring-2 focus:ring-[#D4FF00] focus:border-[#D4FF00] transition"
+              class="w-full px-4 py-3 bg-black/50 border-2 border-primary/20 text-white rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all hover:border-primary/40"
               placeholder="Tu nombre"
             />
           </div>
@@ -42,7 +46,7 @@ import { SITE_CONFIG } from '@/config/site.config';
               id="email"
               name="email"
               required
-              class="w-full px-4 py-3 bg-black/50 border-2 border-gray-800 text-white rounded-lg focus:ring-2 focus:ring-[#D4FF00] focus:border-[#D4FF00] transition"
+              class="w-full px-4 py-3 bg-black/50 border-2 border-primary/20 text-white rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all hover:border-primary/40"
               placeholder="tu@email.com"
             />
           </div>
@@ -56,7 +60,7 @@ import { SITE_CONFIG } from '@/config/site.config';
               name="message"
               rows="5"
               required
-              class="w-full px-4 py-3 bg-black/50 border-2 border-gray-800 text-white rounded-lg focus:ring-2 focus:ring-[#D4FF00] focus:border-[#D4FF00] resize-none transition"
+              class="w-full px-4 py-3 bg-black/50 border-2 border-primary/20 text-white rounded-lg focus:ring-2 focus:ring-primary focus:border-primary resize-none transition-all hover:border-primary/40"
               placeholder="Cuéntame sobre tu proyecto..."
             ></textarea>
           </div>
@@ -71,7 +75,7 @@ import { SITE_CONFIG } from '@/config/site.config';
         <p class="text-gray-400 mb-4 uppercase font-bold tracking-wide">O contáctame directamente:</p>
         <a 
           href={`mailto:${SITE_CONFIG.email}`}
-          class="text-[#D4FF00] hover:text-[#B8E000] font-bold text-xl transition"
+          class="text-primary hover:text-primary-dark font-bold text-xl transition-all text-glow"
         >
           {SITE_CONFIG.email}
         </a>
